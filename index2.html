@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahra Cyntia Matondang — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg:          #0f0715;
+  --bg2:         #160d1e;
+  --card:        #1a1024;
+  --card2:       #1f132c;
+  --pink:        #ff4fa3;
+  --pink-soft:   #ff85c2;
+  --pink-light:  #ffc1e3;
+  --pink-glow:   rgba(255, 79, 163, 0.18);
+  --pink-subtle: rgba(255, 79, 163, 0.08);
+  --pink-border: rgba(255, 79, 163, 0.22);
+  --pink-border2:rgba(255, 79, 163, 0.45);
+  --white:       #ffffff;
+  --text2:       #d8d8d8;
+  --text3:       #9a8aaa;
+  --glass:       rgba(26, 16, 36, 0.75);
+  --r-sm:  12px;
+  --r-md:  20px;
+  --r-lg:  28px;
+  --r-xl:  36px;
+  --font-h: 'Syne', sans-serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* noise */
+body::after {
+  content:'';
+  position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0;
+}
+
+/* ====================================
+   AMBIENT BLOBS
+   ==================================== */
+.blobs {
+  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+}
+.blob {
+  position:absolute;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:0.5;
+  animation: blobFloat 14s ease-in-out infinite;
+}
+.blob-1 { width:520px;height:520px;top:-140px;left:-140px;background:radial-gradient(circle, rgba(255,79,163,0.15), transparent 70%); }
+.blob-2 { width:400px;height:400px;bottom:-80px;right:-80px;background:radial-gradient(circle, rgba(255,133,194,0.12), transparent 70%);animation-delay:-6s;animation-duration:10s; }
+.blob-3 { width:280px;height:280px;top:40%;left:55%;background:radial-gradient(circle, rgba(255,193,227,0.07), transparent 70%);animation-delay:-3s;animation-duration:16s; }
+@keyframes blobFloat {
+  0%,100%{ transform:translate(0,0) scale(1); }
+  33%    { transform:translate(35px,28px) scale(1.06); }
+  66%    { transform:translate(-20px,50px) scale(0.94); }
+}
+
+/* ====================================
+   NAVBAR
+   ==================================== */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:18px 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(15,7,21,0.82);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--pink-border);
+}
+.nav-logo {
+  font-family:var(--font-h);font-size:22px;font-weight:800;
+  background:linear-gradient(135deg, var(--pink), var(--pink-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-0.5px;
+}
+.nav-links { display:flex;gap:4px;list-style:none; }
+.nav-links a {
+  color:var(--text2);text-decoration:none;font-size:13.5px;font-weight:500;
+  padding:7px 16px;border-radius:100px;transition:all .25s;
+}
+.nav-links a:hover { color:var(--white);background:var(--pink-subtle); }
+
+/* ====================================
+   SECTION BASE
+   ==================================== */
+section {
+  position:relative;z-index:1;
+  padding:120px 8% 100px;
+}
+
+.sec-tag {
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--pink);padding:6px 16px;
+  background:var(--pink-subtle);border:1px solid var(--pink-border);
+  border-radius:100px;margin-bottom:16px;
+}
+.sec-tag::before {
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--pink);animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.35;transform:scale(.65);}
+}
+
+.sec-title {
+  font-family:var(--font-h);font-size:clamp(30px,4.5vw,46px);
+  font-weight:800;letter-spacing:-.04em;line-height:1.1;
+  background:linear-gradient(135deg,#fff 40%,var(--pink-light) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:12px;
+}
+
+.sec-sub {
+  font-size:15.5px;color:var(--text2);line-height:1.75;
+  max-width:480px;margin-bottom:56px;
+}
+
+.sec-head { text-align:center; }
+.sec-head .sec-sub { margin:0 auto 56px; }
+
+/* ====================================
+   ABOUT
+   ==================================== */
+#about {
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding-top:140px;
+  background: radial-gradient(ellipse at 10% 50%, rgba(255,79,163,0.06) 0%, transparent 55%),
+              var(--bg);
+}
+
+.about-grid {
+  display:grid;grid-template-columns:290px 1fr;gap:80px;align-items:center;
+}
+
+/* photo */
+.about-photo-wrap { display:flex;flex-direction:column;align-items:center;gap:18px; }
+
+.photo-ring {
+  position:relative;
+  animation:photoFloat 5s ease-in-out infinite;
+}
+@keyframes photoFloat {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-14px);}
+}
+.photo-ring::before {
+  content:'';position:absolute;inset:-3px;border-radius:32px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-soft),var(--pink-light),transparent);
+  z-index:0;
+}
+.photo-ring::after {
+  content:'';position:absolute;inset:-28px;border-radius:50px;
+  background:radial-gradient(circle,var(--pink-glow),transparent 70%);
+  z-index:-1;filter:blur(20px);
+}
+.photo-ring img {
+  position:relative;z-index:1;
+  width:270px;height:355px;object-fit:cover;
+  border-radius:28px;display:block;
+}
+
+.status-pill {
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 20px;
+  background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:100px;backdrop-filter:blur(16px);
+  font-size:13px;color:var(--text2);
+}
+.s-dot {
+  width:8px;height:8px;border-radius:50%;background:#4ade80;
+  box-shadow:0 0 8px #4ade80;animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* text */
+.about-text .hi {
+  font-size:12px;color:var(--pink);font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.about-text .hi::after {
+  content:'';flex:1;height:1px;width:40px;
+  background:linear-gradient(90deg,var(--pink),transparent);
+}
+
+.about-text h1 {
+  font-family:var(--font-h);font-size:clamp(32px,4vw,56px);
+  font-weight:800;letter-spacing:-.04em;line-height:1.0;
+  background:linear-gradient(135deg,#fff 30%,var(--pink-light) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:10px;
+}
+
+.about-role {
+  font-size:15px;color:var(--pink-soft);font-weight:500;
+  display:flex;align-items:center;gap:10px;margin-bottom:24px;
+  min-height:24px;
+}
+.about-role::before { content:'';width:26px;height:2px;background:var(--pink-soft);border-radius:2px; }
+
+.cursor-blink {
+  display:inline-block;color:var(--pink);font-weight:300;
+  animation:blink 1s step-end infinite;
+}
+
+.about-text .bio {
+  font-size:15px;color:var(--text2);line-height:1.9;
+  max-width:520px;margin-bottom:34px;
+  border-left:2px solid var(--pink-border2);
+  padding-left:16px;
+}
+
+/* stat boxes */
+.stats { display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px; }
+.stat {
+  background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:var(--r-md);padding:16px 20px;
+  backdrop-filter:blur(16px);text-align:center;min-width:120px;
+  transition:all .3s ease;position:relative;overflow:hidden;
+}
+.stat::after {
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--pink),var(--pink-soft));
+  transform:scaleX(0);transition:transform .3s ease;
+}
+.stat:hover::after { transform:scaleX(1); }
+.stat:hover { border-color:var(--pink-border2);background:rgba(255,79,163,0.08);transform:translateY(-4px); }
+.stat-ico { font-size:20px;margin-bottom:6px; }
+.stat-lbl { font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:3px; }
+.stat-val { font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--white); }
+
+/* CTA */
+.cta { display:flex;gap:14px;flex-wrap:wrap; }
+.btn-p {
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-soft));
+  color:#fff;font-weight:700;font-size:14px;
+  border-radius:var(--r-sm);text-decoration:none;
+  transition:all .3s ease;box-shadow:0 4px 24px var(--pink-glow);
+}
+.btn-p:hover { transform:translateY(-2px);box-shadow:0 10px 40px rgba(255,79,163,.45); }
+.btn-o {
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;
+  background:transparent;color:var(--white);font-weight:600;font-size:14px;
+  border:1px solid var(--pink-border2);border-radius:var(--r-sm);
+  text-decoration:none;transition:all .3s ease;
+}
+.btn-o:hover { background:var(--pink-subtle);border-color:var(--pink);transform:translateY(-2px); }
+
+/* ====================================
+   EDUCATION & CERTIFICATES
+   ==================================== */
+#education {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+
+.edu-wrap {
+  display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;
+}
+
+.glass-card {
+  background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:var(--r-lg);padding:32px;
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  position:relative;overflow:hidden;
+  transition:all .4s ease;
+}
+.glass-card::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--pink),var(--pink-soft),transparent);
+}
+.glass-card:hover {
+  border-color:var(--pink-border2);
+  box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px var(--pink-glow);
+  transform:translateY(-5px);
+}
+
+.card-lbl {
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--pink);display:flex;align-items:center;gap:8px;margin-bottom:22px;
+}
+
+.edu-entry { display:flex;gap:16px; }
+.edu-icon {
+  width:48px;height:48px;border-radius:14px;
+  background:var(--pink-subtle);border:1px solid var(--pink-border2);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  flex-shrink:0;margin-top:2px;
+}
+.edu-info h3 {
+  font-family:var(--font-h);font-size:18px;font-weight:700;color:var(--white);margin-bottom:4px;
+}
+.edu-prodi {
+  font-size:14px;color:var(--pink-soft);font-weight:500;margin-bottom:10px;
+}
+.edu-metas { display:flex;gap:10px;flex-wrap:wrap; }
+.edu-m {
+  font-size:12px;color:var(--text3);
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:4px 12px;border-radius:100px;
+  display:flex;align-items:center;gap:5px;
+}
+
+/* cert cards — photo style */
+.cert-stack { display:flex;flex-direction:column;gap:14px; }
+
+.cert-card {
+  display:flex;align-items:center;gap:16px;
+  background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:var(--r-md);
+  padding:14px 18px 14px 14px;
+  backdrop-filter:blur(16px);
+  transition:all .35s ease;
+  cursor:pointer;color:inherit;
+  position:relative;overflow:hidden;
+}
+.cert-card::before {
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--pink),var(--pink-soft));
+  border-radius:3px 0 0 3px;
+  transform:scaleY(0);transition:transform .35s ease;
+}
+.cert-card:hover::before { transform:scaleY(1); }
+.cert-card:hover {
+  border-color:var(--pink-border2);
+  background:rgba(255,79,163,0.06);
+  transform:translateX(5px);
+  box-shadow:0 10px 36px rgba(0,0,0,.35),0 0 20px var(--pink-glow);
+}
+
+/* thumbnail foto sertifikat */
+.cert-thumb {
+  width:72px;height:52px;border-radius:10px;
+  overflow:hidden;flex-shrink:0;
+  border:1px solid var(--pink-border2);
+  background:var(--pink-subtle);
+  position:relative;
+}
+.cert-thumb img {
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
+}
+.cert-card:hover .cert-thumb img { transform:scale(1.08); }
+
+/* placeholder jika belum ada foto */
+.cert-thumb-placeholder {
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  background:linear-gradient(135deg,rgba(255,79,163,.12),rgba(255,133,194,.06));
+}
+
+.cert-body { flex:1;min-width:0; }
+.cert-name { font-family:var(--font-h);font-size:13.5px;font-weight:700;color:var(--white);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+.cert-sub  { font-size:12px;color:var(--text3); }
+
+.cert-right { display:flex;flex-direction:column;align-items:flex-end;gap:7px;flex-shrink:0; }
+.cert-yr {
+  font-size:11px;font-weight:700;
+  color:var(--pink);background:var(--pink-subtle);
+  padding:3px 10px;border-radius:100px;border:1px solid var(--pink-border);
+  white-space:nowrap;
+}
+.cert-view {
+  font-size:11px;color:var(--text3);
+  display:flex;align-items:center;gap:4px;
+  transition:color .3s;
+}
+.cert-card:hover .cert-view { color:var(--pink-soft); }
+
+/* ---- MODAL ---- */
+.cert-modal-overlay {
+  position:fixed;inset:0;z-index:500;
+  background:rgba(10,3,15,0.88);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+}
+.cert-modal-overlay.open { opacity:1;pointer-events:all; }
+
+.cert-modal {
+  background:var(--card);border:1px solid var(--pink-border2);
+  border-radius:var(--r-xl);
+  max-width:700px;width:100%;
+  overflow:hidden;
+  box-shadow:0 40px 100px rgba(0,0,0,.7),0 0 60px var(--pink-glow);
+  transform:scale(.92) translateY(20px);
+  transition:transform .35s cubic-bezier(.23,1,.32,1);
+  position:relative;
+}
+.cert-modal-overlay.open .cert-modal { transform:scale(1) translateY(0); }
+
+.cert-modal-img {
+  width:100%;max-height:420px;object-fit:contain;
+  background:#0d0518;
+  display:block;
+}
+.cert-modal-img-placeholder {
+  width:100%;height:280px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:linear-gradient(135deg,rgba(255,79,163,.08),rgba(255,133,194,.04));
+  color:var(--text3);font-size:14px;
+}
+.cert-modal-img-placeholder .big-ico { font-size:52px; }
+
+.cert-modal-body { padding:24px 28px; }
+.cert-modal-title {
+  font-family:var(--font-h);font-size:20px;font-weight:800;
+  background:linear-gradient(135deg,#fff,var(--pink-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px;
+}
+.cert-modal-sub { font-size:14px;color:var(--text2);margin-bottom:16px; }
+.cert-modal-meta { display:flex;gap:10px;flex-wrap:wrap; }
+.cert-modal-tag {
+  font-size:12px;font-weight:600;padding:5px 14px;border-radius:100px;
+  background:var(--pink-subtle);border:1px solid var(--pink-border);color:var(--pink-soft);
+}
+
+.cert-modal-close {
+  position:absolute;top:14px;right:14px;
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(0,0,0,.5);border:1px solid var(--pink-border);
+  color:var(--text2);font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .25s;z-index:10;
+}
+.cert-modal-close:hover { background:var(--pink);color:#fff;border-color:var(--pink); }
+
+/* upload label */
+.cert-upload-hint {
+  font-size:11px;color:var(--text3);margin-top:4px;
+  display:flex;align-items:center;gap:4px;
+}
+
+/* ====================================
+   SKILLS
+   ==================================== */
+#skills {
+  background: radial-gradient(ellipse at 80% 50%, rgba(255,79,163,.05) 0%, transparent 55%),
+              var(--bg2);
+}
+
+.skills-grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;
+}
+
+.skill-card {
+  background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:var(--r-lg);padding:30px 26px;
+  backdrop-filter:blur(20px);position:relative;overflow:hidden;
+  transition:all .4s cubic-bezier(.23,1,.32,1);
+}
+.skill-card::after {
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--pink),var(--pink-soft),transparent);
+  transform:scaleX(0);transition:transform .4s ease;
+}
+.skill-card:hover::after { transform:scaleX(1); }
+.skill-card:hover {
+  border-color:var(--pink-border2);
+  box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 30px var(--pink-glow);
+  transform:translateY(-7px);
+}
+.sk-ico {
+  width:52px;height:52px;border-radius:16px;
+  background:linear-gradient(135deg,var(--pink-subtle),rgba(255,133,194,.12));
+  border:1px solid var(--pink-border2);
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  margin-bottom:18px;transition:all .3s;
+}
+.skill-card:hover .sk-ico { transform:scale(1.1) rotate(-6deg);background:rgba(255,79,163,.18); }
+.skill-card h3 { font-family:var(--font-h);font-size:16px;font-weight:700;margin-bottom:8px;color:var(--white); }
+.skill-card p  { font-size:13.5px;color:var(--text2);line-height:1.7;margin-bottom:18px; }
+.tags { display:flex;flex-wrap:wrap;gap:6px; }
+.tag {
+  font-size:11px;font-weight:600;padding:4px 11px;border-radius:100px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
+  color:var(--text3);letter-spacing:.03em;
+}
+.tag.p {
+  background:var(--pink-subtle);border-color:var(--pink-border2);color:var(--pink-soft);
+}
+
+/* ====================================
+   PROJECTS
+   ==================================== */
+#projects {
+  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);
+}
+
+.projects-grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;
+}
+
+.proj-card {
+  background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:var(--r-lg);padding:32px;backdrop-filter:blur(20px);
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+  transition:all .45s cubic-bezier(.23,1,.32,1);
+}
+.proj-card::before {
+  content:'';position:absolute;top:-70px;right:-70px;
+  width:180px;height:180px;border-radius:50%;
+  background:var(--pink-glow);filter:blur(50px);
+  opacity:0;transition:opacity .45s;
+}
+.proj-card:hover::before { opacity:1; }
+.proj-card:hover {
+  border-color:var(--pink-border2);
+  box-shadow:0 24px 70px rgba(0,0,0,.55),0 0 40px var(--pink-glow);
+  transform:translateY(-9px);
+}
+.proj-num {
+  font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:18px;
+}
+.proj-card h3 {
+  font-family:var(--font-h);font-size:20px;font-weight:800;
+  letter-spacing:-.02em;line-height:1.2;
+  background:linear-gradient(135deg,#fff 50%,var(--pink-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:12px;
+}
+.proj-card p { font-size:14px;color:var(--text2);line-height:1.75;flex:1;margin-bottom:24px; }
+.proj-foot { display:flex;align-items:center;justify-content:space-between; }
+.proj-type {
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
+  padding:5px 14px;border-radius:100px;
+  background:var(--pink-subtle);border:1px solid var(--pink-border);color:var(--pink-soft);
+}
+.proj-arr {
+  width:36px;height:36px;border-radius:10px;
+  background:var(--pink-subtle);border:1px solid var(--pink-border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--pink);font-size:13px;transition:all .3s;
+}
+.proj-card:hover .proj-arr {
+  background:var(--pink);color:#fff;border-color:var(--pink);
+  transform:translate(2px,-2px);
+}
+
+/* ====================================
+   CONTACT
+   ==================================== */
+#contact {
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,79,163,.07) 0%, transparent 60%),
+              var(--bg);
+}
+
+.contact-wrap {
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;
+}
+
+.contact-left h2 {
+  font-family:var(--font-h);font-size:clamp(26px,3.5vw,40px);
+  font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:14px;
+  background:linear-gradient(135deg,#fff 40%,var(--pink-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.contact-left .cdesc {
+  font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:36px;
+}
+.clinks { display:flex;flex-direction:column;gap:12px; }
+.clink {
+  display:flex;align-items:center;gap:14px;
+  padding:17px 20px;background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:var(--r-md);backdrop-filter:blur(16px);
+  text-decoration:none;color:inherit;transition:all .35s;
+}
+.clink:hover {
+  border-color:var(--pink-border2);background:rgba(255,79,163,.07);
+  transform:translateX(7px);
+}
+.cl-ico {
+  width:44px;height:44px;border-radius:12px;
+  background:var(--pink-subtle);border:1px solid var(--pink-border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--pink);flex-shrink:0;transition:all .3s;
+}
+.clink:hover .cl-ico { background:var(--pink);color:#fff; }
+.cl-body { flex:1; }
+.cl-lbl { font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);margin-bottom:2px; }
+.cl-val { font-size:14.5px;font-weight:500;color:var(--white); }
+.cl-arr { color:var(--text3);font-size:12px;transition:all .3s; }
+.clink:hover .cl-arr { color:var(--pink);transform:translate(3px,-3px); }
+
+/* right panel */
+.contact-panel {
+  background:var(--glass);border:1px solid var(--pink-border);
+  border-radius:var(--r-xl);padding:40px;backdrop-filter:blur(24px);
+  position:relative;overflow:hidden;
+}
+.contact-panel::before {
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--pink),var(--pink-soft),var(--pink-light),transparent);
+}
+.contact-panel::after {
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,79,163,.12),transparent 70%);
+  filter:blur(30px);pointer-events:none;
+}
+.contact-panel h3 {
+  font-family:var(--font-h);font-size:22px;font-weight:800;letter-spacing:-.02em;
+  background:linear-gradient(135deg,#fff,var(--pink-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:10px;position:relative;z-index:1;
+}
+.contact-panel p { font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:26px;position:relative;z-index:1; }
+
+.open-badge {
+  display:flex;align-items:center;gap:10px;
+  padding:13px 18px;
+  background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.2);
+  border-radius:var(--r-md);margin-bottom:26px;position:relative;z-index:1;
+}
+.open-badge i { color:#4ade80;font-size:15px; }
+.open-badge span { font-size:13.5px;color:#86efac;font-weight:500; }
+
+.quick-btns {
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative;z-index:1;
+}
+.qbtn {
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 14px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r-sm);font-size:13px;color:var(--text2);
+  text-decoration:none;font-weight:500;transition:all .3s;
+}
+.qbtn:hover { background:var(--pink-subtle);border-color:var(--pink-border2);color:var(--white);transform:translateY(-2px); }
+.qbtn i { color:var(--pink);font-size:14px; }
+
+/* ====================================
+   FOOTER
+   ==================================== */
+footer {
+  position:relative;z-index:1;
+  border-top:1px solid var(--pink-border);
+  padding:34px 8%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.ft-logo {
+  font-family:var(--font-h);font-size:18px;font-weight:800;
+  background:linear-gradient(135deg,var(--pink),var(--pink-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ft-copy { font-size:13px;color:var(--text3); }
+.ft-social { display:flex;gap:9px; }
+.ft-social a {
+  width:36px;height:36px;border-radius:10px;
+  background:var(--pink-subtle);border:1px solid var(--pink-border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text2);font-size:14px;text-decoration:none;transition:all .3s;
+}
+.ft-social a:hover { background:var(--pink);color:#fff;border-color:var(--pink); }
+
+/* ====================================
+   SCROLL REVEAL
+   ==================================== */
+.rv { opacity:0;transform:translateY(28px);transition:all .7s cubic-bezier(.23,1,.32,1); }
+.rv.on { opacity:1;transform:translateY(0); }
+.rv.d1{ transition-delay:.1s; }
+.rv.d2{ transition-delay:.2s; }
+.rv.d3{ transition-delay:.3s; }
+.rv.d4{ transition-delay:.4s; }
+
+/* ====================================
+   SCROLLBAR
+   ==================================== */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--pink-border2);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--pink);}
+
+/* ====================================
+   RESPONSIVE
+   ==================================== */
+@media(max-width:920px){
+  section{ padding:90px 6% 70px; }
+  .about-grid{ grid-template-columns:1fr;gap:48px;text-align:center; }
+  .about-photo-wrap{ align-items:center; }
+  .about-role,.stats,.cta{ justify-content:center; }
+  .about-text .bio{ margin-inline:auto; }
+  .edu-wrap{ grid-template-columns:1fr;gap:24px; }
+  .contact-wrap{ grid-template-columns:1fr;gap:40px; }
+  footer{ flex-direction:column;text-align:center; }
+}
+@media(max-width:640px){
+  nav{ padding:15px 5%; }
+  .nav-links{ display:none; }
+  .photo-ring img{ width:220px;height:290px; }
+  .photo-ring::before{ border-radius:28px; }
+  .quick-btns{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Zahra Cyntia Matondang.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- =================== ABOUT =================== -->
+<section id="about">
+  <div class="about-grid">
+
+    <div class="about-photo-wrap rv">
+      <div class="photo-ring">
+        <img src="fotozahra.jpeg" alt="Zahra Cyntia Matondang">
+      </div>
+      <div class="status-pill">
+        <span class="s-dot"></span>
+        Open to Internship
+      </div>
+    </div>
+
+    <div class="about-text">
+      <p class="hi rv">✦ Introducing</p>
+      <h1 class="rv d1">Zahra Cyntia<br>Matondang</h1>
+      <p class="about-role rv d2"><span id="typed-role"></span><span class="cursor-blink">|</span></p>
+      <p class="bio rv d2">
+        Mahasiswi aktif Program Studi <strong style="color:#fff">Informatika</strong> yang memiliki ketertarikan kuat di bidang
+        <strong style="color:#fff">basis data dan pengembangan sistem informasi</strong>.
+        Berfokus pada penguasaan SQL, MySQL, serta pemrograman berorientasi objek sebagai fondasi
+        dalam membangun solusi teknologi yang efisien dan terstruktur.
+      </p>
+      <div class="stats rv d3">
+        <div class="stat">
+          <div class="stat-ico">🎓</div>
+          <div class="stat-lbl">Status</div>
+          <div class="stat-val">Aktif Kuliah</div>
+        </div>
+        <div class="stat">
+          <div class="stat-ico">💾</div>
+          <div class="stat-lbl">Fokus Utama</div>
+          <div class="stat-val">Database Dev</div>
+        </div>
+        <div class="stat">
+          <div class="stat-ico">🏛️</div>
+          <div class="stat-lbl">Universitas</div>
+          <div class="stat-val">Universitas Satya Terra Bhinneka</div>
+        </div>
+      </div>
+      <div class="cta rv d4">
+        <a href="#projects" class="btn-p"><i class="fa-solid fa-folder-open"></i> View Projects</a>
+        <a href="#contact"  class="btn-o"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== EDUCATION =================== -->
+<section id="education">
+  <div class="sec-head rv">
+    <div class="sec-tag">Background</div>
+    <h2 class="sec-title">Education & Certificates</h2>
+    <p class="sec-sub">Perjalanan akademik dan pencapaian sertifikasi yang telah saya raih.</p>
+  </div>
+
+  <div class="edu-wrap">
+
+    <!-- Education card -->
+    <div class="glass-card rv">
+      <div class="card-lbl"><i class="fa-solid fa-graduation-cap"></i> Education</div>
+      <div class="edu-entry">
+        <div class="edu-icon">🏛️</div>
+        <div class="edu-info">
+          <h3>Universitas Satya Terra Bhinneka</h3>
+          <p class="edu-prodi">💻 Program Studi Informatika</p>
+          <div class="edu-metas">
+            <span class="edu-m"><i class="fa-regular fa-calendar"></i> 2025 – Sekarang</span>
+            <span class="edu-m"><i class="fa-solid fa-layer-group"></i> Semester 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificates -->
+    <div class="rv d1">
+      <div class="card-lbl" style="display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--pink);margin-bottom:16px;">
+        <i class="fa-solid fa-certificate"></i> Certificates
+      </div>
+      <div class="cert-stack">
+
+        <!-- Sertifikat 1 -->
+        <div class="cert-card rv d1" onclick="openCert('cert-db')">
+          <div class="cert-thumb" id="thumb-cert-db">
+            <div class="cert-thumb-placeholder">🗄️</div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-name">Sertifikat SDGs</div>
+            <div class="cert-sub">Pengetasan Kemiskinan</div>
+          </div>
+          <div class="cert-right">
+            <span class="cert-yr">2026</span>
+            <span class="cert-view"><i class="fa-solid fa-eye"></i> Lihat</span>
+          </div>
+        </div>
+
+        <!-- Sertifikat 2 -->
+        <div class="cert-card rv d2" onclick="openCert('cert-java')">
+          <div class="cert-thumb" id="thumb-cert-java">
+            <div class="cert-thumb-placeholder">☕</div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-name">Micrososft Office Spesialist</div>
+            <div class="cert-sub">Microsoft Word</div>
+          </div>
+          <div class="cert-right">
+            <span class="cert-yr">2025</span>
+            <span class="cert-view"><i class="fa-solid fa-eye"></i> Lihat</span>
+          </div>
+        </div>
+
+        <!-- Sertifikat 3 -->
+        <div class="cert-card rv d3" onclick="openCert('cert-web')">
+          <div class="cert-thumb" id="thumb-cert-web">
+            <div class="cert-thumb-placeholder">🌐</div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-name">Sertifikat SDGs</div>
+            <div class="cert-sub">Pencegahan Kekerasan Terhadap Perempuan Dan Anak</div>
+          </div>
+          <div class="cert-right">
+            <span class="cert-yr">2026</span>
+            <span class="cert-view"><i class="fa-solid fa-eye"></i> Lihat</span>
+          </div>
+        </div>
+
+        <!-- Sertifikat 4 -->
+        <div class="cert-card rv d4" onclick="openCert('cert-4')">
+          <div class="cert-thumb" id="thumb-cert-4">
+            <div class="cert-thumb-placeholder">📊</div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-name">Sertifikat SDGs</div>
+            <div class="cert-sub">Peningkatan Kualitas Pendidikan</div>
+          </div>
+          <div class="cert-right">
+            <span class="cert-yr">2026</span>
+            <span class="cert-view"><i class="fa-solid fa-eye"></i> Lihat</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Upload foto hint -->
+      <p class="cert-upload-hint" style="margin-top:14px;">
+        <i class="fa-solid fa-circle-info" style="color:var(--pink);"></i>
+        Klik kartu untuk melihat sertifikat 
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== SKILLS =================== -->
+<section id="skills">
+  <div class="sec-head rv">
+    <div class="sec-tag">Expertise</div>
+    <h2 class="sec-title">My Skills</h2>
+    <p class="sec-sub">Kemampuan teknis yang terus saya pelajari dan kembangkan.</p>
+  </div>
+  <div class="skills-grid">
+
+    <div class="skill-card rv">
+      <div class="sk-ico">☕</div>
+      <h3>Java Programming</h3>
+      <p>Membuat aplikasi dasar menggunakan Java dengan penerapan konsep Object Oriented Programming.</p>
+      <div class="tags">
+        <span class="tag p">OOP</span><span class="tag">Classes</span><span class="tag">Methods</span><span class="tag">Inheritance</span>
+      </div>
+    </div>
+
+    <div class="skill-card rv d1">
+      <div class="sk-ico">🗄️</div>
+      <h3>Database Management</h3>
+      <p>Merancang dan mengelola database menggunakan SQL dan MySQL untuk pengelolaan data yang efisien.</p>
+      <div class="tags">
+        <span class="tag p">MySQL</span><span class="tag">SQL</span><span class="tag">ERD</span><span class="tag">Query</span>
+      </div>
+    </div>
+
+    <div class="skill-card rv d2">
+      <div class="sk-ico">🌐</div>
+      <h3>Web Development</h3>
+      <p>Membangun tampilan website menggunakan HTML, CSS, dan JavaScript yang responsif dan modern.</p>
+      <div class="tags">
+        <span class="tag p">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="skill-card rv d3">
+      <div class="sk-ico">🎨</div>
+      <h3>UI/UX Design</h3>
+      <p>Merancang tampilan antarmuka yang sederhana, intuitif, dan ramah pengguna (user friendly).</p>
+      <div class="tags">
+        <span class="tag p">Figma</span><span class="tag">Wireframe</span><span class="tag">Prototype</span>
+      </div>
+    </div>
+
+    <div class="skill-card rv d4">
+      <div class="sk-ico">💼</div>
+      <h3>Microsoft Office</h3>
+      <p>Mengoperasikan aplikasi Microsoft Office secara profesional, termasuk pengolahan dokumen, data, dan presentasi.</p>
+      <div class="tags">
+        <span class="tag p">Word</span><span class="tag">Excel</span><span class="tag">PowerPoint</span><span class="tag">MOS</span>
+      </div>
+    </div>
+
+    <div class="skill-card rv d5">
+      <div class="sk-ico">🐍</div>
+      <h3>Python Basic</h3>
+      <p>Mempelajari dasar-dasar pemrograman Python untuk pengolahan data, logika algoritma, dan otomasi sederhana.</p>
+      <div class="tags">
+        <span class="tag p">Python</span><span class="tag">Variables</span><span class="tag">Loops</span><span class="tag">Functions</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== PROJECTS =================== -->
+<section id="projects">
+  <div class="sec-head rv">
+    <div class="sec-tag">Portfolio</div>
+    <h2 class="sec-title">My Projects</h2>
+    <p class="sec-sub">Beberapa proyek dan tugas yang telah saya kerjakan selama perkuliahan.</p>
+  </div>
+  <div class="projects-grid">
+
+    <div class="proj-card rv">
+      <div class="proj-num">Project · 01</div>
+      <h3>Portfolio Website</h3>
+      <p>Membuat website portofolio pribadi untuk menampilkan profil, keterampilan, dan proyek yang telah dikerjakan selama perkuliahan dengan desain modern dan responsif.</p>
+      <div class="proj-foot">
+        <span class="proj-type">Web Dev</span>
+        <div class="proj-arr"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <div class="proj-card rv d1">
+      <div class="proj-num">Project · 02</div>
+      <h3>Perpustakaan Database System</h3>
+      <p>Merancang dan mengelola database perpustakaan menggunakan MySQL untuk menyimpan data buku, anggota, dan transaksi peminjaman secara terstruktur.</p>
+      <div class="proj-foot">
+        <span class="proj-type">Database</span>
+        <div class="proj-arr"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+    <div class="proj-card rv d2">
+      <div class="proj-num">Project · 03</div>
+      <h3>FinTech for Sustainable Economic Growth</h3>
+      <p>Penelitian mengenai dampak perkembangan FinTech terhadap literasi keuangan generasi muda sebagai upaya mendukung pencapaian SDG 8 tentang pertumbuhan ekonomi yang berkelanjutan dan inklusif.</p>
+      <div class="proj-foot">
+        <span class="proj-type">Research</span>
+        <div class="proj-arr"><i class="fa-solid fa-arrow-up-right"></i></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =================== CONTACT =================== -->
+<section id="contact">
+  <div class="contact-wrap">
+
+    <div class="contact-left rv">
+      <div class="sec-tag" style="margin-bottom:20px;">Get in Touch</div>
+      <h2>Let's Connect &<br>Collaborate 🌸</h2>
+      <p class="cdesc">Saya terbuka untuk kesempatan magang, kolaborasi proyek, atau sekadar diskusi seputar teknologi. Jangan ragu untuk menghubungi saya!</p>
+      <div class="clinks">
+        <a href="mailto:zahracyntia71@gmail.com" class="clink">
+          <div class="cl-ico"><i class="fa-solid fa-envelope"></i></div>
+          <div class="cl-body">
+            <div class="cl-lbl">Email</div>
+            <div class="cl-val">zahracyntia71@gmail.com</div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right cl-arr"></i>
+        </a>
+        <a href="https://wa.me/6282294095172" class="clink" target="_blank">
+          <div class="cl-ico"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="cl-body">
+            <div class="cl-lbl">WhatsApp</div>
+            <div class="cl-val">+62 822-9409-5172</div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right cl-arr"></i>
+        </a>
+        <a href="https://instagram.com/_zahramatondang" class="clink" target="_blank">
+          <div class="cl-ico"><i class="fa-brands fa-instagram"></i></div>
+          <div class="cl-body">
+            <div class="cl-lbl">Instagram</div>
+            <div class="cl-val">@_zahramatondang</div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right cl-arr"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-panel rv d1">
+      <h3>Interested in working together? 🚀</h3>
+      <p>Saya aktif mencari pengalaman magang atau proyek kolaboratif di bidang database, web development, atau riset teknologi. Hubungi saya dan mari diskusi!</p>
+      <div class="open-badge">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Saat ini <strong>open to internship</strong> & freelance projects</span>
+      </div>
+      <div class="quick-btns">
+        <a href="mailto:zahracyntia71@gmail.com" class="qbtn"><i class="fa-solid fa-envelope"></i> Kirim Email</a>
+        <a href="https://wa.me/6282294095172"    class="qbtn" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://instagram.com/_zahramatondang" class="qbtn" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#projects" class="qbtn"><i class="fa-solid fa-folder-open"></i> My Work</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">Zahra Cyntia Matondang.</div>
+  <p class="ft-copy">© 2026 Zahra Cyntia Matondang · Informatika · Universitas Satya Terra Bhinneka</p>
+  <div class="ft-social">
+    <a href="mailto:zahracyntia71@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    <a href="https://wa.me/6282294095172" title="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://instagram.com/_zahramatondang" title="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+</footer>
+
+<!-- =================== CERT MODAL =================== -->
+<div class="cert-modal-overlay" id="certModal" onclick="closeCertOnOverlay(event)">
+  <div class="cert-modal" id="certModalBox">
+
+    <button class="cert-modal-close" onclick="closeCert()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Gambar sertifikat -->
+    <div id="modalImgWrap"></div>
+
+    <div class="cert-modal-body">
+      <div class="cert-modal-title" id="modalTitle"></div>
+      <div class="cert-modal-sub"   id="modalSub"></div>
+      <div class="cert-modal-meta"  id="modalMeta"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* ---- Scroll Reveal ---- */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+/* ---- Typing Effect ---- */
+const roles = [
+  'Informatics Student · Semester 2',
+  'Database Developer Enthusiast',
+  'UI/UX & Web Dev Learner',
+  'Open to Internship Opportunities'
+];
+let ri = 0, ci = 0, deleting = false;
+const typedEl = document.getElementById('typed-role');
+function typeLoop() {
+  const current = roles[ri];
+  if (!deleting) {
+    typedEl.textContent = current.slice(0, ++ci);
+    if (ci === current.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
+  } else {
+    typedEl.textContent = current.slice(0, --ci);
+    if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+  }
+  setTimeout(typeLoop, deleting ? 45 : 80);
+}
+typeLoop();
+
+/* ---- Data Sertifikat ---- */
+const certData = {
+  'cert-db': {
+    title: 'Program Belajar Daring SDGs',
+    sub:   'Pengetasan Kemiskinan',
+    year:  '2026',
+    tags:  ['Kemiskinan'],
+    ico:   '🗄️',
+    img:   'SertifikatSDGsPengetasanKemiskinan.jpeg'    
+  },
+  'cert-java': {
+    title: 'Microsoft Office Spesialist',
+    sub:   'Microsoft Office Word',
+    year:  '2025',
+    tags:  ['Microsoft Word'],
+    ico:   '💼',
+    img:   'SertifikatMOS.jpeg'
+  },
+  'cert-web': {
+    title: 'Program Belajar Daring SDGs',
+    sub:   'Pencegacahan Kekerasan Terhadap Perrempuan Dan Anak',
+    year:  '2026',
+    tags:  ['Pencegahan Kekerasan'],
+    ico:   '🌐',
+    img:   'SertifikatSDGsTerhadapPerempuan.jpeg'    
+  },
+  'cert-4': {
+    title: 'Program Belajar Daring SDGs',
+    sub:   'Peningkatan Kualitas Pendidikan',
+    year:  '2026',
+    tags:  ['Kualitas Pendidikan'],
+    ico:   '📊',
+    img:   'SertifikatSDGsPeningkatanKualitasPendidikan.jpeg'
+  },
+};
+
+function openCert(id) {
+  const d = certData[id];
+  if (!d) return;
+
+  /* gambar / placeholder */
+  const imgWrap = document.getElementById('modalImgWrap');
+  if (d.img) {
+    imgWrap.innerHTML = `<img class="cert-modal-img" src="${d.img}" alt="${d.title}">`;
+  } else {
+    imgWrap.innerHTML = `
+      <div class="cert-modal-img-placeholder">
+        <span class="big-ico">${d.ico}</span>
+        <span>Foto sertifikat belum ditambahkan</span>
+        <span style="font-size:12px;opacity:.6">Isi path foto di certData["${id}"].img</span>
+      </div>`;
+  }
+
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalSub').textContent   = d.sub;
+  document.getElementById('modalMeta').innerHTML    =
+    `<span class="cert-modal-tag"> ${d.year}</span>` +
+    d.tags.map(t => `<span class="cert-modal-tag">${t}</span>`).join('');
+
+  /* update thumbnail jika ada foto */
+  const thumb = document.getElementById('thumb-' + id);
+  if (thumb && d.img) {
+    thumb.innerHTML = `<img src="${d.img}" alt="${d.title}">`;
+  }
+
+  document.getElementById('certModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCert() {
+  document.getElementById('certModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeCertOnOverlay(e) {
+  if (e.target === document.getElementById('certModal')) closeCert();
+}
+
+/* tutup modal dengan ESC */
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeCert(); });
+</script>
+</body>
+</html>
